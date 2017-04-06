@@ -1,0 +1,1021 @@
+<?xml version ='1.0'?>
+<gazebo version ='1.0'>
+<world name='default'>
+  <scene>
+    <ambient rgba='0.500000 0.500000 0.500000 1.000000'/>
+    <background rgba='0.500000 0.500000 0.500000 1.000000'/>
+    <shadows enabled='0'/>
+  </scene>
+  <physics type='ode' update_rate='0.000000'>
+    <gravity xyz='0.000000 0.000000 -9.800000'/>
+    <ode>
+      <solver type='quick' dt='0.001000' iters='10' precon_iters='0' sor='1.300000'/>
+      <constraints cfm='0.000000' erp='0.200000' contact_max_correcting_vel='100.000000' contact_surface_layer='0.001000'/>
+    </ode>
+  </physics>
+  <model name='plane1_model' static='1'>
+    <link name='body' gravity='1' self_collide='0' kinematic='0'>
+      <collision name='geom_1' laser_retro='0.000000'>
+        <geometry>
+          <plane normal='0.000000 0.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='10.000000' mu2='10.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='1000000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='10000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.000100'/>
+          </contact>
+        </surface>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      </collision>
+      <visual name='visual_1' cast_shadows='0' laser_retro='0.000000' transparency='0.000000'>
+        <geometry>
+          <plane normal='0.000000 0.000000 1.000000'/>
+        </geometry>
+        <material script='Gazebo/Grey'/>
+      </visual>
+      <damping>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </damping>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+    </link>
+    <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+  </model>
+  <model name='willow_map' static='1'>
+    <link name='willow_map_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='-41.910000 -19.050000 0.000000 0.000000 -0.000000 0.000000'/>
+      <collision name='willow_map_collision' laser_retro='0.000000'>
+        <geometry>
+          <mesh filename='willowgarage2.stl' scale='0.025400 0.025400 0.025400'/>
+        </geometry>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <surface>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='willow_map_visual' cast_shadows='0' laser_retro='0.000000' transparency='0.000000'>
+        <geometry>
+          <mesh filename='willowgarage2.dae' scale='0.025400 0.025400 0.025400'/>
+        </geometry>
+      </visual>
+      <damping>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </damping>
+    </link>
+    <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+  </model>
+  <light name='my_light' type='directional' cast_shadows='0'>
+    <origin pose='0.000000 0.000000 30.000000 0.000000 -0.000000 0.000000'/>
+    <diffuse rgba='0.500000 0.500000 0.500000 1.000000'/>
+    <specular rgba='0.100000 0.100000 0.100000 1.000000'/>
+    <attenuation range='200.000000' linear='1.000000' constant='1.000000' quadratic='0.000000'/>
+    <direction xyz='0.000000 0.000000 -1.000000'/>
+  </light>
+  <model name='youBot' static='0'>
+    <origin pose='1.381710 1.124320 0.082770 0.000083 0.000171 1.153920'/>
+    <link name='base_footprint' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <inertial mass='24.105000' density='1.000000'>
+        <origin pose='0.000408 0.000000 0.003114 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='6.776280' ixy='-0.009720' ixz='1.297180' iyy='6.850480' iyz='-0.007380' izz='4.860160'/>
+      </inertial>
+      <collision name='base_footprint_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 -0.050000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.001000 0.001000 0.001000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='base_footprint_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.001000 0.001000 0.001000'/>
+        </geometry>
+      </visual>
+      <collision name='base_footprint_geom_arm_link_0' laser_retro='0.000000'>
+        <origin pose='0.143000 0.000000 0.046000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm0_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='base_footprint_geom_arm_link_0_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.143000 0.000000 0.046000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm0.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <material script='youbot/DarkGrey'/>
+      </visual>
+      <collision name='base_footprint_geom_base_laser_front_link' laser_retro='0.000000'>
+        <origin pose='0.300000 0.000000 -0.030000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/sensors/hokuyo_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='base_footprint_geom_base_laser_front_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.300000 0.000000 -0.030000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/sensors/hokuyo.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <collision name='base_footprint_geom_base_link' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_base/base_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='base_footprint_geom_base_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_base/base.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <collision name='base_footprint_geom_plate_link' laser_retro='0.000000'>
+        <origin pose='-0.159000 0.000000 0.046000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_plate/plate_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='base_footprint_geom_plate_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.159000 0.000000 0.046000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_plate/plate.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <sensor name='base_laser_front' type='ray' always_on='0' update_rate='10.000000' visualize='0'>
+        <origin pose='0.300000 0.000000 -0.030000 0.000000 -0.000000 0.000000'/>
+        <ray>
+          <scan>
+            <horizontal samples='683' resolution='1.000000' min_angle='-2.356194' max_angle='2.356194'/>
+            <vertical samples='1' resolution='1.000000' min_angle='0.000000' max_angle='0.000000'/>
+          </scan>
+          <range min='0.060000' max='4.000000' resolution='0.001000'/>
+        </ray>
+        <plugin name='gazebo_ros_base_laser_front_controller' filename='libgazebo_ros_laser.so'>
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>1</alwaysOn>
+          <updateRate>10.0</updateRate>
+          <topicName>base_scan/scan</topicName>
+          <frameName>/base_laser_front_link</frameName>
+          <robotNamespace>/</robotNamespace>
+        </plugin>
+      </sensor>
+      <damping/>
+    </link>
+    <link name='arm_link_1' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.166999 0.000001 0.141998 -0.000126 0.000016 2.965980'/>
+      <inertial mass='2.412000' density='1.000000'>
+        <origin pose='0.014890 0.002130 0.002130 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.003863' ixy='-0.000979' ixz='0.000000' iyy='0.006196' iyz='0.000000' izz='0.006369'/>
+      </inertial>
+      <collision name='arm_link_1_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm1_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='arm_link_1_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm1.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <damping/>
+    </link>
+    <link name='arm_link_2' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.134507 0.005767 0.160989 -0.000537 -1.134440 2.966500'/>
+      <inertial mass='1.155000' density='1.000000'>
+        <origin pose='0.104530 0.001700 -0.002970 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.000823' ixy='0.000000' ixz='-0.000000' iyy='0.004447' iyz='0.000000' izz='0.004439'/>
+      </inertial>
+      <collision name='arm_link_2_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 -0.032000 0.078000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm2_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='arm_link_2_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 -0.032000 0.078000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm2.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <damping/>
+    </link>
+    <link name='arm_link_3' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.272796 -0.018790 0.226438 -0.006669 1.412080 2.959570'/>
+      <inertial mass='0.934000' density='1.000000'>
+        <origin pose='0.000100 0.096700 0.021070 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.002459' ixy='0.000000' ixz='0.000000' iyy='0.002571' iyz='-0.000000' izz='0.000535'/>
+      </inertial>
+      <collision name='arm_link_3_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.028000 0.079000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm3_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='arm_link_3_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.028000 0.079000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm3.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <damping/>
+    </link>
+    <link name='arm_link_4' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.141532 0.004459 0.247748 -0.001068 -0.375269 2.966650'/>
+      <inertial mass='0.877000' density='1.000000'>
+        <origin pose='0.000110 0.051030 -0.023190 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.000869' ixy='0.000000' ixz='-0.000000' iyy='0.001173' iyz='-0.000231' izz='0.001091'/>
+      </inertial>
+      <collision name='arm_link_4_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 -0.010000 0.029000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm4_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='arm_link_4_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 -0.010000 0.029000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm4.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <damping/>
+    </link>
+    <link name='arm_link_5' gravity='1' self_collide='1' kinematic='0'>
+      <origin pose='0.190253 -0.004336 0.367976 -0.084205 0.366233 -0.409675'/>
+      <inertial mass='0.351000' density='1.000000'>
+        <origin pose='0.000000 0.000822 -0.012035 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.010280' ixy='0.000000' ixz='0.000000' iyy='0.010339' iyz='0.000000' izz='0.010119'/>
+      </inertial>
+      <collision name='arm_link_5_geom' laser_retro='0.000000'>
+        <origin pose='0.003000 0.000000 -0.034000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm5_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='arm_link_5_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.003000 0.000000 -0.034000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_arm/arm5.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <collision name='arm_link_5_geom_gripper_palm_link' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_gripper/palm_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='arm_link_5_geom_gripper_palm_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_gripper/palm.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <material script='Gazebo/Black'/>
+      </visual>
+      <damping/>
+    </link>
+    <link name='gripper_finger_link_l' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.213609 -0.000450 0.408631 0.084209 -0.366229 2.731930'/>
+      <inertial mass='0.010000' density='1.000000'>
+        <origin pose='0.000000 -0.001000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.010000' ixy='0.000000' ixz='0.000000' iyy='0.010000' iyz='0.000000' izz='0.010000'/>
+      </inertial>
+      <collision name='gripper_finger_link_l_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_gripper/finger_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='gripper_finger_link_l_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_gripper/finger.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <damping/>
+    </link>
+    <link name='gripper_finger_link_r' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.206982 -0.017073 0.410039 -0.084226 0.366234 -0.409682'/>
+      <inertial mass='0.010000' density='1.000000'>
+        <origin pose='0.000000 -0.001000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.010000' ixy='0.000000' ixz='0.000000' iyy='0.010000' iyz='0.000000' izz='0.010000'/>
+      </inertial>
+      <collision name='gripper_finger_link_r_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_gripper/finger_convex.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='gripper_finger_link_r_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <mesh filename='/home/mrgreen/Desktop/mypackages/youbot/youbot-ros-pkg/youbot_common/youbot_description/meshes/youbot_gripper/finger.dae' scale='1.000000 1.000000 1.000000'/>
+        </geometry>
+      </visual>
+      <damping/>
+    </link>
+    <link name='caster_link_bl' gravity='0' self_collide='0' kinematic='0'>
+      <origin pose='-0.227999 0.158001 -0.033898 0.000001 0.000006 -0.114335'/>
+      <inertial mass='0.100000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <damping/>
+    </link>
+    <link name='wheel_link_bl' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='-0.228000 0.158002 -0.033815 3.141570 0.204851 3.027250'/>
+      <inertial mass='0.400000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <collision name='wheel_link_bl_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 1.570800 -0.000000 0.000000'/>
+        <geometry>
+          <cylinder radius='0.050000' length='0.050000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='wheel_link_bl_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <sphere radius='0.050000'/>
+        </geometry>
+        <material script='youbot/Orange'/>
+      </visual>
+      <damping/>
+    </link>
+    <link name='caster_link_br' gravity='0' self_collide='0' kinematic='0'>
+      <origin pose='-0.228000 -0.157999 -0.033834 -0.000007 -0.000000 -0.098735'/>
+      <inertial mass='0.100000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <damping/>
+    </link>
+    <link name='wheel_link_br' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='-0.227998 -0.157999 -0.033778 3.141560 -0.665557 3.042880'/>
+      <inertial mass='0.400000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <collision name='wheel_link_br_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 1.570800 -0.000000 0.000000'/>
+        <geometry>
+          <cylinder radius='0.050000' length='0.050000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='wheel_link_br_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <sphere radius='0.050000'/>
+        </geometry>
+        <material script='youbot/Orange'/>
+      </visual>
+      <damping/>
+    </link>
+    <link name='caster_link_fl' gravity='0' self_collide='0' kinematic='0'>
+      <origin pose='0.228000 0.158001 -0.033836 0.000005 0.000001 0.114338'/>
+      <inertial mass='0.100000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <damping/>
+    </link>
+    <link name='wheel_link_fl' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.228000 0.158002 -0.033731 -3.141550 0.147993 -3.027250'/>
+      <inertial mass='0.400000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <collision name='wheel_link_fl_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 1.570800 -0.000000 0.000000'/>
+        <geometry>
+          <cylinder radius='0.050000' length='0.050000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='wheel_link_fl_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <sphere radius='0.050000'/>
+        </geometry>
+        <material script='youbot/Orange'/>
+      </visual>
+      <damping/>
+    </link>
+    <link name='caster_link_fr' gravity='0' self_collide='0' kinematic='0'>
+      <origin pose='0.228000 -0.158000 -0.033833 0.000002 -0.000002 0.098742'/>
+      <inertial mass='0.100000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <damping/>
+    </link>
+    <link name='wheel_link_fr' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.228001 -0.158000 -0.033717 3.141550 -0.720869 -3.042820'/>
+      <inertial mass='0.400000' density='1.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.012412' ixy='-0.000712' ixz='0.000503' iyy='0.015218' iyz='-0.000004' izz='0.011764'/>
+      </inertial>
+      <collision name='wheel_link_fr_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 1.570800 -0.000000 0.000000'/>
+        <geometry>
+          <cylinder radius='0.050000' length='0.050000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='wheel_link_fr_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <sphere radius='0.050000'/>
+        </geometry>
+        <material script='youbot/Orange'/>
+      </visual>
+      <damping/>
+    </link>
+    <joint name='arm_joint_1' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='base_footprint'/>
+      <child link='arm_link_1'/>
+      <axis xyz='0.000000 0.000000 -1.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='5.899213' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='arm_joint_2' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='arm_link_1'/>
+      <child link='arm_link_2'/>
+      <axis xyz='-0.173648 -0.984808 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='2.705260' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='arm_joint_3' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='arm_link_2'/>
+      <child link='arm_link_3'/>
+      <axis xyz='-0.173648 -0.984808 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-5.183628' upper='0.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='arm_joint_4' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='arm_link_3'/>
+      <child link='arm_link_4'/>
+      <axis xyz='-0.173648 -0.984808 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='3.577925' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='arm_joint_5' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='arm_link_4'/>
+      <child link='arm_link_5'/>
+      <axis xyz='-0.360933 0.063642 -0.930418'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='5.846853' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='gripper_finger_joint_l' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='arm_link_5'/>
+      <child link='gripper_finger_link_l'/>
+      <axis xyz='0.367852 0.926495 -0.079325'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.011500' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='gripper_finger_joint_r' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='arm_link_5'/>
+      <child link='gripper_finger_link_r'/>
+      <axis xyz='-0.367852 -0.926495 0.079325'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.011500' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='caster_joint_bl' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='base_footprint'/>
+      <child link='caster_link_bl'/>
+      <axis xyz='0.000000 0.000000 1.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='wheel_joint_bl' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='caster_link_bl'/>
+      <child link='wheel_link_bl'/>
+      <axis xyz='0.000000 1.000000 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='caster_joint_br' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='base_footprint'/>
+      <child link='caster_link_br'/>
+      <axis xyz='0.000000 0.000000 1.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='wheel_joint_br' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='caster_link_br'/>
+      <child link='wheel_link_br'/>
+      <axis xyz='0.000000 1.000000 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='caster_joint_fl' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='base_footprint'/>
+      <child link='caster_link_fl'/>
+      <axis xyz='0.000000 0.000000 1.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='wheel_joint_fl' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='caster_link_fl'/>
+      <child link='wheel_link_fl'/>
+      <axis xyz='0.000000 1.000000 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='caster_joint_fr' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='base_footprint'/>
+      <child link='caster_link_fr'/>
+      <axis xyz='0.000000 0.000000 1.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='wheel_joint_fr' type='revolute'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='caster_link_fr'/>
+      <child link='wheel_link_fr'/>
+      <axis xyz='0.000000 1.000000 0.000000'>
+        <dynamics damping='1.000000' friction='0.000000'/>
+        <limit lower='-10000000000000000.000000' upper='10000000000000000.000000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <plugin name='gazebo_ros_controller_manager' filename='libgazebo_ros_controller_manager.so'>
+      <alwaysOn>1</alwaysOn>
+      <updateRate>1000.0</updateRate>
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+    <plugin name='gazebo_ros_power_monitor_controller' filename='libgazebo_ros_power_monitor.so'>
+      <alwaysOn>1</alwaysOn>
+      <updateRate>1.0</updateRate>
+      <timeout>5</timeout>
+      <powerStateTopic>power_state</powerStateTopic>
+      <powerStateRate>10.0</powerStateRate>
+      <fullChargeCapacity>87.78</fullChargeCapacity>
+      <dischargeRate>-474</dischargeRate>
+      <chargeRate>525</chargeRate>
+      <dischargeVoltage>15.52</dischargeVoltage>
+      <chargeVoltage>16.41</chargeVoltage>
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+    <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+      <alwaysOn>1</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <topicName>base_pose_ground_truth</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>map</frameName>
+      <xyzOffsets>25.7 25.7 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+      <bodyName>base_footprint</bodyName>
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </model>
+  <model name='coke_can_model' static='0'>
+    <link name='body' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.000000 0.000000 0.050000 0.000000 -0.000000 0.000000'/>
+      <inertial mass='1.000000' density='1.000000'>
+        <inertia ixx='0.010000' ixy='0.000000' ixz='0.000000' iyy='0.010000' iyz='0.000000' izz='0.010000'/>
+      </inertial>
+      <collision name='geom' laser_retro='0.000000'>
+        <geometry>
+          <mesh filename='coke_can.dae' scale='0.001000 0.001000 0.001000'/>
+        </geometry>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <surface>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='visual1' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <geometry>
+          <mesh filename='coke_can.dae' scale='0.001000 0.001000 0.001000'/>
+        </geometry>
+      </visual>
+      <damping>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </damping>
+    </link>
+    <origin pose='1.476970 1.997310 -0.232623 -0.014362 0.004791 0.127786'/>
+  </model>
+  <state world_name='default' time='165 770000000'>
+    <model name='plane1_model'>
+      <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+      <link name='body'>
+        <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='willow_map'>
+      <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+      <link name='willow_map_link'>
+        <pose>-41.910000 -19.050000 0.000000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='youBot'>
+      <pose>-0.012445 0.030393 0.083845 0.000566 -0.003327 0.012808</pose>
+      <link name='base_footprint'>
+        <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_1'>
+        <pose>0.166999 0.000001 0.141991 -0.000212 0.000037 2.964950</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_2'>
+        <pose>0.134503 0.005802 0.160974 -0.000915 -1.134230 2.965890</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_3'>
+        <pose>0.272761 -0.018900 0.226442 -0.015653 1.410990 2.949560</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_4'>
+        <pose>0.141535 0.004463 0.247859 -0.002749 -0.375199 2.966210</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_5'>
+        <pose>0.190218 -0.004574 0.368085 -0.082722 0.366628 -0.410846</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='gripper_finger_link_l'>
+        <pose>0.213969 0.000211 0.408669 0.082716 -0.366634 2.730760</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='gripper_finger_link_r'>
+        <pose>0.206573 -0.018255 0.410207 -0.082747 0.366633 -0.410853</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_bl'>
+        <pose>-0.228003 0.158001 -0.033837 -0.000006 0.000005 3.027280</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_bl'>
+        <pose>-0.228003 0.158000 -0.033694 3.119050 0.387510 -0.120913</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_br'>
+        <pose>-0.228003 -0.158001 -0.033862 -0.000006 -0.000000 -0.098748</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_br'>
+        <pose>-0.228004 -0.157997 -0.033538 0.029132 0.859767 0.118933</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_fl'>
+        <pose>0.228003 0.158000 -0.033614 0.000014 0.000000 -3.027190</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_fl'>
+        <pose>0.228006 0.157997 -0.033445 -0.165932 0.918112 2.954820</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_fr'>
+        <pose>0.228002 -0.158000 -0.033702 0.000024 -0.000006 0.098707</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_fr'>
+        <pose>0.228004 -0.157998 -0.033510 -3.046790 0.378886 -3.061820</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='coke_can_model'>
+      <pose>1.477030 1.996780 -0.232623 -0.016480 0.005365 0.126962</pose>
+      <link name='body'>
+        <pose>0.000000 0.000000 0.050000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='coke_can_model_0'>
+      <pose>0.694636 0.081464 -0.231045 -0.088615 -0.029509 -0.938792</pose>
+      <link name='body'>
+        <pose>0.000000 0.000000 0.050000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+  </state>
+  <state world_name='default' time='165 770000000'>
+    <model name='plane1_model'>
+      <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+      <link name='body'>
+        <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='willow_map'>
+      <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+      <link name='willow_map_link'>
+        <pose>-41.910000 -19.050000 0.000000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='youBot'>
+      <pose>-0.012445 0.030393 0.083845 0.000566 -0.003327 0.012808</pose>
+      <link name='base_footprint'>
+        <pose>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_1'>
+        <pose>0.166999 0.000001 0.141991 -0.000212 0.000037 2.964950</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_2'>
+        <pose>0.134503 0.005802 0.160974 -0.000915 -1.134230 2.965890</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_3'>
+        <pose>0.272761 -0.018900 0.226442 -0.015653 1.410990 2.949560</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_4'>
+        <pose>0.141535 0.004463 0.247859 -0.002749 -0.375199 2.966210</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='arm_link_5'>
+        <pose>0.190218 -0.004574 0.368085 -0.082722 0.366628 -0.410846</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='gripper_finger_link_l'>
+        <pose>0.213969 0.000211 0.408669 0.082716 -0.366634 2.730760</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='gripper_finger_link_r'>
+        <pose>0.206573 -0.018255 0.410207 -0.082747 0.366633 -0.410853</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_bl'>
+        <pose>-0.228003 0.158001 -0.033837 -0.000006 0.000005 3.027280</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_bl'>
+        <pose>-0.228003 0.158000 -0.033694 3.119050 0.387510 -0.120913</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_br'>
+        <pose>-0.228003 -0.158001 -0.033862 -0.000006 -0.000000 -0.098748</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_br'>
+        <pose>-0.228004 -0.157997 -0.033538 0.029132 0.859767 0.118933</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_fl'>
+        <pose>0.228003 0.158000 -0.033614 0.000014 0.000000 -3.027190</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_fl'>
+        <pose>0.228006 0.157997 -0.033445 -0.165932 0.918112 2.954820</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='caster_link_fr'>
+        <pose>0.228002 -0.158000 -0.033702 0.000024 -0.000006 0.098707</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+      <link name='wheel_link_fr'>
+        <pose>0.228004 -0.157998 -0.033510 -3.046790 0.378886 -3.061820</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='coke_can_model'>
+      <pose>1.477030 1.996780 -0.232623 -0.016480 0.005365 0.126962</pose>
+      <link name='body'>
+        <pose>0.000000 0.000000 0.050000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+    <model name='coke_can_model_0'>
+      <pose>0.694636 0.081464 -0.231045 -0.088615 -0.029509 -0.938792</pose>
+      <link name='body'>
+        <pose>0.000000 0.000000 0.050000 0.000000 -0.000000 0.000000</pose>
+        <velocity>0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000</velocity>
+      </link>
+    </model>
+  </state>
+  <model name='coke_can_model_0' static='0'>
+    <link name='body' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.000000 0.000000 0.050000 0.000000 -0.000000 0.000000'/>
+      <inertial mass='1.000000' density='1.000000'>
+        <inertia ixx='0.010000' ixy='0.000000' ixz='0.000000' iyy='0.010000' iyz='0.000000' izz='0.010000'/>
+      </inertial>
+      <collision name='geom' laser_retro='0.000000'>
+        <geometry>
+          <mesh filename='coke_can.dae' scale='0.001000 0.001000 0.001000'/>
+        </geometry>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <surface>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='visual1' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <geometry>
+          <mesh filename='coke_can.dae' scale='0.001000 0.001000 0.001000'/>
+        </geometry>
+      </visual>
+      <damping>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </damping>
+    </link>
+    <origin pose='0.513353 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+  </model>
+</world>
+</gazebo>
