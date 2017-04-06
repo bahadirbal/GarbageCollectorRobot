@@ -63,4 +63,4 @@ parameters of a real hand and arbitrary object, including physical and material 
 well as environmental obstacles and forces.
 
 
-Continue with our project simulation environment installation and results, please read [project report](https://nodejs.org/).
+Continue with our project simulation environment installation and results, please read [project report](https://github.com/bahadirbal/GarbageCollectorRobot/blob/master/Project-Report.pdf).
